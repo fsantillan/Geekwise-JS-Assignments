@@ -1,4 +1,34 @@
-function validateForm() {
+var first_name = document.getElementById("first");
+var last_name = document.getElementById("last");
+var zip_code = document.getElementById("zip");
+
+var Form = {
+	
+	checkEmpty: function() {
+		if ( ( first_name.value == null || first_name.value == "" ) || ( last_name.value == null || last_name.value == "" ) ||  (zip_code.value == null || zip_code.value == "" ) ) {
+		document.getElementById("errors").innerHTML = "All fields must be completed.";
+		return false;
+		}
+	},
+	
+	checkLength: function() {
+		if ( !( first_name.value.length >= 3 && first_name.value.length <= 50) || !( last_name.value.length >= 3 && last_name.value.length <= 50) ) {
+			document.getElementById("errors").innerHTML = "First and last name should be between 3 to 5 characters.";
+			return false;
+		}
+	},
+	
+	checkZip: function() {
+		if ( isNaN( zip_code.value ) || (zip_code.value.length != 5) )  {
+			document.getElementById("errors").innerHTML = "Please enter a valid zip code.";
+			return false;
+		}
+	}
+};
+
+
+
+/*function validateForm() {
 		var first_name = document.getElementById("first");
 		var last_name = document.getElementById("last");
 		var zip_code = document.getElementById("zip");
@@ -8,7 +38,7 @@ function validateForm() {
 			return false;
 		};
 		
-		if ( ( last_name.value == null || last_name.value == "" ) || !( last_name.value.length >= 3 && first_name.value.length <= 50) ) {
+		if ( ( last_name.value == null || last_name.value == "" ) || !( last_name.value.length >= 3 && last_name.value.length <= 50) ) {
 			document.getElementById("errors").innerHTML = "Please enter a valid last name.";
 			return false;
 		}
@@ -18,7 +48,7 @@ function validateForm() {
 			return false;
 		};
 			
-};
+};*/
 
 
 //  1) Ensure no fields are empty

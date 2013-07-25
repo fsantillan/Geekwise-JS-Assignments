@@ -5,7 +5,7 @@
      
      <body>
      	<div id="errors"></div>
-     	<form id="sign-up" onSubmit="validateForm(); return false;">
+     	<form id="sign-up" onSubmit="Form.checkEmpty();Form.checkLength();Form.checkZip(); return false;">
         	<label>First Name</label><input id="first" type="text" /><br/>
             <label>Last Name</label><input id="last" type="text" /><br/>
             <label>Zip Code</label><input id="zip" type="text" /><br/>
